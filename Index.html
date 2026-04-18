@@ -1,0 +1,759 @@
+
+<html lang="en">
+
+<head>
+
+
+
+
+    
+<meta charset="UTF-8">
+
+    
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+<title>
+𓆩×͜×𓆪𝐅&Μ 𝐅𝐀𝐇𝐈Μ
+</title>
+
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    
+<style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;500;700&display=swap');
+
+        /* --- RGB Animation Styles --- */
+        #animation-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%
+            height: 100%
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999999;
+            overflow: hidden;
+            transition: opacity 1s ease-out;
+        }
+
+        .anim-content {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-img-anim {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%
+            object-fit: cover;
+            z-index: 20;
+            border: 3px solid #222;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+        }
+
+        .rgb-border-anim {
+            position: absolute;
+            width: 210px;
+            height: 210px;
+            border-radius: 50%
+            background: conic-gradient(#ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
+            animation: rotate-anim 1.5s linear infinite;
+            z-index: 15;
+        }
+
+        .rgb-border-anim::after {
+            content: '';
+            position: absolute;
+            inset: 6px;
+            background: #000;
+            border-radius: 50%
+        }
+
+        .bar-anim {
+            position: absolute;
+            width: 350px;
+            height: 4px;
+            border-radius: 2px;
+            z-index: 10;
+            filter: blur(1px);
+        }
+
+        .bar-1-anim { background: linear-gradient(90deg, transparent, #ff0000, #ffff00, transparent); animation: rotate-anim 3s linear infinite; }
+        .bar-2-anim { background: linear-gradient(90deg, transparent, #00ff00, #00ffff, transparent); animation: rotate-anim 4s linear infinite reverse; }
+        .bar-3-anim { background: linear-gradient(90deg, transparent, #0000ff, #ff00ff, transparent); animation: rotate-anim 2.5s linear infinite; width: 300px; }
+
+        .laser-anim { position: absolute; width: 2px; height: 100px; z-index: 5; filter: blur(1px); }
+        .laser-red-anim { background: #ff0000; box-shadow: 0 0 15px #ff0000; animation: laser-move-anim 2s infinite ease-in-out; }
+        .laser-blue-anim { background: #0000ff; box-shadow: 0 0 15px #0000ff; animation: laser-move-anim 2.5s infinite ease-in-out reverse; }
+        .laser-yellow-anim { background: #ffff00; box-shadow: 0 0 15px #ffff00; animation: laser-move-anim 1.8s infinite ease-in-out; }
+        .laser-green-anim { background: #00ff00; box-shadow: 0 0 15px #00ff00; animation: laser-move-anim 3s infinite ease-in-out reverse; }
+
+        .particle-anim { position: absolute; width: 8px; height: 8px; border-radius: 50% z-index: 12; filter: blur(1px); box-shadow: 0 0 10px currentColor; }
+        .p1-anim { background: #ff0000; color: #ff0000; animation: orbit-anim 2s infinite linear; }
+        .p2-anim { background: #0000ff; color: #0000ff; animation: orbit-anim 3s infinite linear reverse; }
+        .p3-anim { background: #ffff00; color: #ffff00; animation: orbit-anim 2.5s infinite linear; }
+        .p4-anim { background: #00ff00; color: #00ff00; animation: orbit-anim 3.5s infinite linear reverse; }
+
+        @keyframes rotate-anim { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes orbit-anim { from { transform: rotate(0deg) translateX(130px) rotate(0deg); } to { transform: rotate(360deg) translateX(130px) rotate(-360deg); } }
+        @keyframes laser-move-anim { 0% { transform: rotate(0deg) translateY(-200px); opacity: 0; } 50% { opacity: 1; } 100% { transform: rotate(360deg) translateY(200px); opacity: 0; } }
+
+        .outer-ring-anim {
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 50%
+            animation: rotate-anim 10s linear infinite;
+        }
+
+        /* --- User's Original Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            margin: 0;
+            background: #000;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            touch-action: none;
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .site-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%
+            height: 100%
+            border: none;
+            z-index: 1;
+        }
+
+        #adminNoticeBar {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%
+            background: rgba(255, 0, 102, 0.9);
+            color: #fff;
+            z-index: 999999;
+            padding: 5px 0;
+            font-size: 12px;
+            font-weight: bold;
+            overflow: hidden;
+        }
+
+        #floatingCenterLogo {
+            position: fixed;
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%);
+            width: 60vw;
+            max-width: 300px;
+            opacity: 0.12;
+            z-index: 2;
+            pointer-events: none;
+            animation: smoothTilt 6s ease-in-out infinite;
+        }
+
+        @keyframes smoothTilt {
+            0%, 100% { transform: translate(-50%, -50%) rotate(-5deg); }
+            50% { transform: translate(-50%, -50%) rotate(5deg); }
+        }
+
+        #rippleLayer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%
+            height: 100%
+            pointer-events: none;
+            z-index: 999999;
+        }
+
+        .ripple {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(0, 238, 255, 0.8);
+            border-radius: 50%
+            transform: scale(0);
+            animation: ripple-anim 0.5s ease-out;
+            box-shadow: 0 0 10px #00eeff;
+        }
+
+        @keyframes ripple-anim {
+            to { transform: scale(6); opacity: 0; }
+        }
+
+        #signalBox {
+            position: fixed;
+            top: 180px;
+            left: 50%
+            transform: translateX(-50%);
+            width: 200px; 
+            background: rgba(5, 10, 20, 0.9);
+            border-radius: 15px;
+            padding: 10px;
+            z-index: 10000;
+            display: none;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 238, 255, 0.3);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 238, 255, 0.5);
+            overflow: visible; 
+        }
+
+        .orbit-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%
+            height: 100%
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .orbiting-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #00eeff;
+            border-radius: 50%
+            box-shadow: 0 0 15px #00eeff;
+            top: 50%
+            left: 50%
+            margin-top: -4px;
+            margin-left: -4px;
+        }
+
+        .orbit1 { animation: orbit-anim-1 4s linear infinite; }
+        .orbit2 { animation: orbit-anim-2 3s linear infinite; }
+
+        @keyframes orbit-anim-1 {
+            from { transform: rotate(0deg) translateX(110px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(110px) rotate(-360deg); }
+        }
+
+        @keyframes orbit-anim-2 {
+            from { transform: rotate(180deg) translateX(115px) rotate(-180deg); }
+            to { transform: rotate(540deg) translateX(115px) rotate(-540deg); }
+        }
+
+        #signalBox::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #00eeff, transparent, #ff0066, transparent, #00eeff);
+            background-size: 400%
+            z-index: -1;
+            border-radius: 17px;
+            animation: border-flow 6s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes border-flow {
+            0% { background-position: 0% 50% }
+            100% { background-position: 400% 50% }
+        }
+
+        .panel-header {
+            font-family: 'Orbitron';
+            font-size: 10px;
+            color: #fff;
+            font-weight: 800;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(0, 238, 255, 0.2);
+            padding-bottom: 4px;
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .close-icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 12px;
+            color: #00eeff;
+            cursor: pointer;
+            padding: 2px;
+        }
+
+        .pred-label {
+            color: #aaa;
+            font-size: 8px;
+            font-weight: bold;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .signal-val {
+            font-family: 'Orbitron';
+            font-size: 20px;
+            font-weight: 900;
+            color: #00eeff;
+            text-shadow: 0 0 15px #00eeff;
+            margin-bottom: 6px;
+            animation: pulse-glow 2s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); text-shadow: 0 0 15px #00eeff; }
+            50% { transform: scale(1.05); text-shadow: 0 0 25px #00eeff, 0 0 5px #fff; }
+        }
+
+        .inner-card {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            padding: 6px 10px;
+            text-align: left;
+            border: 1px solid rgba(0, 238, 255, 0.15);
+        }
+
+        .game-info {
+            color: #00eeff;
+            font-size: 8px;
+            font-weight: bold;
+            font-family: 'Orbitron';
+        }
+
+        .period-val {
+            color: #fff;
+            font-size: 10px;
+            font-weight: bold;
+            margin: 2px 0 4px 0;
+        }
+
+        .status-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 4px;
+        }
+
+        .live-status {
+            color: #22c55e;
+            font-size: 8px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .live-dot {
+            width: 5px;
+            height: 5px;
+            background: #22c55e;
+            border-radius: 50%
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .ms-status {
+            color: #00eeff;
+            font-size: 9px;
+            font-weight: bold;
+        }
+
+        .timer-display {
+            color: #ff0066;
+            font-family: 'Orbitron';
+            font-size: 11px;
+            font-weight: bold;
+            margin-top: 4px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .tg-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: linear-gradient(90deg, #00eeff, #0088ff);
+            color: #000;
+            width: 100%
+            margin-top: 8px;
+            padding: 6px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-size: 9px;
+            font-weight: 900;
+            font-family: 'Orbitron';
+            transition: 0.3s;
+        }
+        
+        .tg-btn:hover {
+            box-shadow: 0 0 15px #00eeff;
+            transform: translateY(-2px);
+        }
+
+        #minimizedLogo {
+            position: fixed;
+            top: 180px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%
+            border: 3px solid #00eeff;
+            background: #000;
+            z-index: 10001;
+            display: none;
+            overflow: hidden;
+            box-shadow: 0 0 15px #00eeff;
+            cursor: pointer;
+        }
+
+        .floating-container {
+            position: fixed;
+            top: 50%
+            right: 15px;
+            transform: translateY(-50%);
+            z-index: 1500;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .logo-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%
+            border: 3px solid #00eeff;
+            background: #000;
+            overflow: hidden;
+            box-shadow: 0 0 10px #00eeff;
+            cursor: pointer;
+        }
+
+        .finger-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%
+            background: #000;
+            border: 2px solid #ff0066;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px #ff0066;
+            cursor: pointer;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%
+            height: 100%
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .login-card {
+            background: rgba(10, 15, 30, 0.95);
+            width: 85%
+            max-width: 320px;
+            padding: 30px 20px;
+            border-radius: 25px;
+            border: 1px solid rgba(0, 238, 255, 0.3);
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 238, 255, 0.2);
+        }
+
+        .input-group { margin-bottom: 15px; }
+
+        .input-box {
+            width: 100%
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 238, 255, 0.2);
+            padding: 12px 15px;
+            border-radius: 12px;
+            color: #fff;
+            font-family: 'Orbitron';
+            font-size: 12px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .input-box:focus { border-color: #00eeff; box-shadow: 0 0 10px rgba(0, 238, 255, 0.3); }
+
+        .enter-btn {
+            width: 100%
+            background: linear-gradient(45deg, #00eeff, #7b2cbf);
+            border: none;
+            padding: 12px;
+            border-radius: 12px;
+            color: #fff;
+            font-family: 'Orbitron';
+            font-weight: 900;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 5px 15px rgba(0, 238, 255, 0.3);
+        }
+
+        .shake { animation: shake-anim 0.4s ease-in-out; }
+        @keyframes shake-anim {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .target-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%
+            height: 100%
+            background: #000;
+            z-index: 999999;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #ff0000;
+            font-family: 'Orbitron';
+            text-align: center;
+            border: 0px solid red;
+        }
+
+        .alert-active { animation: alert-blink 0.5s infinite alternate; }
+        @keyframes alert-blink {
+            from { border: 0px solid red; }
+            to { border: 15px solid red; }
+        }
+    
+</style>
+
+
+</head>
+
+
+
+<body onmousedown="createRipple(event)" ontouchstart="createRipple(event)">
+
+
+    
+    
+<div id="animation-overlay">
+
+        
+<div class="anim-content">
+
+            
+<div class="outer-ring-anim">
+
+</div>
+
+            
+<div class="bar-anim bar-1-anim">
+
+</div>
+
+            
+<div class="bar-anim bar-2-anim">
+
+</div>
+
+            
+<div class="bar-anim bar-3-anim">
+
+</div>
+
+            
+<div class="laser-anim laser-red-anim" style="left: 20%">
+
+</div>
+
+            
+<div class="laser-anim laser-blue-anim" style="right: 20%">
+
+</div>
+
+            
+<div class="laser-anim laser-yellow-anim" style="top: 10%">
+
+</div>
+
+            
+<div class="laser-anim laser-green-anim" style="bottom: 10%">
+
+</div>
+
+            
+<div class="particle-anim p1-anim">
+
+</div>
+
+            
+<div class="particle-anim p2-anim">
+
+</div>
+
+            
+<div class="particle-anim p3-anim">
+
+</div>
+
+            
+<div class="particle-anim p4-anim">
+
+</div>
+
+            
+<div class="rgb-border-anim">
+
+</div>
+
+            
+<img src="https://files.catbox.moe/z6mt88.jpg" alt="Profile" class="profile-img-anim">
+
+        
+</div>
+
+    
+</div>
+
+
+    
+    
+<div id="adminNoticeBar" style="display: block;">
+
+        
+<marquee id="adminNoticeText">
+ পাসওয়ার্ড নিতে হলে 𝚅𝙸𝙿 তে জয়েন হতে হবে
+</marquee>
+
+    
+</div>
+
+    
+<iframe id="gameFrame" class="site-frame" src="https://dkwin9.com/#/register?invitationCode=281661285126">
+https://draw.ar-lottery01.com/WinGo/WinGo_30S/GetHistoryIssuePage.json?ts
+</iframe>
+
+    
+<div id="rippleLayer">
+
+</div>
+
+    
+<img id="floatingCenterLogo" src="https://files.catbox.moe/z6mt88.jpg">
+
+    
+<div id="minimizedLogo" onclick="maximizePanel()">
+
+<img src="https://files.catbox.moe/z6mt88.jpg" style="width:100% height:100% object-fit:cover;">
+
+</div>
+
+
+    
+<div class="floating-container" id="uiControls">
+
+        
+<div class="logo-btn" onclick="toggleFinger()">
+
+<img id="mainLogo" src="https://files.catbox.moe/z6mt88.jpg" style="width:100% height:100% object-fit:cover;">
+
+</div>
+
+        
+<div class="finger-btn" id="fingerBtn" onclick="showLogin()">
+
+<i class="fas fa-fingerprint" style="color:#ff0066; font-size:24px;">
+
+</i>
+
+</div>
+
+    
+</div>
+
+
+    
+<div class="modal-overlay" id="loginModal">
+
+        
+<div class="login-card" id="loginCard">
+
+            
+<div style="width:80px; height:80px; border-radius:50% border:3px solid #00eeff; margin: 0 auto 15px; overflow:hidden; background:#000; box-shadow: 0 0 15px rgba(0, 238, 255, 0.5);">
+
+                
+<img id="loginProfile" src="https://files.catbox.moe/z6mt88.jpg" style="width:100% height:100%">
+
+            
+</div>
+
+            
+<h4 id="panelBrand" style="color:#fff; margin-bottom: 25px; font-family: 'Orbitron'; font-size: 16px; text-shadow: 0 0 10px rgba(123, 44, 191, 0.8);">
+𓆩×͜×𓆪𝐅&Μ 𝐅𝐀𝐇𝐈Μ 
+</h4>
+
+            
+<div class="input-group">
+
+                
+<input type="tel" id="uid" class="input-box" placeholder="GAME UID">
+
+            
+</div>
+
+            
+<div class="input-group">
+
+                
+<input type="password" id="pass" class="input-box" placeholder="ACCESS KEY">
+
+            
+</div>
+
+            
+<button class="enter-btn" onclick="checkLogin()">
+VERIFY & INJECT
+</button>
+
+        
+</div>
+
+    
+</div>
+
+
+    
+<div class="target-screen" id="targetScreen">
+
+        
+<img src="https://files.catbox.moe/z6mt88.jpg" style="width:100px; filter: drop-shadow(0 0 15px red); margin-bottom: 20px;">
+
+        
+<div style="text-align: center; color: #ff0000; font-family: 'Orbitron'; line-height: 1.6;">
+
+        
