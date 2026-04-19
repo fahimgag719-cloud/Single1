@@ -1,108 +1,401 @@
-<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title> 𓆩×͜×𓆪𝐅&Μ 𝐅𝐀𝐇𝐈Μ </title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+<meta charset="utf-8">
 
+  
+<title>
+
+   Protected Content
+  
+</title>
+
+  
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;500;700&display=swap');
 
-/* (তোমার আগের CSS একদম unchanged রাখা হলো) */
+   body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        iframe {
+            width: 100%
+            height: 100%
+            border: none;
+        }
+
+        #predictionBox {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #000000e0;
+            padding: 12px 16px;
+            border-radius: 16px;
+            color: #fff;
+            font-size: 15px;
+            font-weight: bold;
+            width: 160px;
+            text-align: center;
+            border: 2px solid #ff6b6b;
+            box-shadow: 0 0 15px #ff6b6b88;
+            z-index: 99999;
+            cursor: grab;
+            user-select: none;
+            transition: width 0.5s ease, padding 0.5s ease;
+        }
+
+        #boxTitle {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #ff6b6b;
+            text-shadow: 0 0 5px #ff6b6b, 0 0 10px #ff6b6b;
+        }
+
+        .big { color: #4ecdc4; }
+        .small { color: #ff6b6b; }
+        .green { color: #4ecdc4; }
+        .red { color: #ff6b6b; }
+        .violet { color: #e040fb; }
+
+        .timer { 
+            font-size: 14px; 
+            margin-top: 8px; 
+            color: #bbb; 
+            border-top: 1px solid #444;
+            padding-top: 5px;
+        }
+
+        #loginForm input {
+            width: 130px;
+            padding: 6px;
+            border-radius: 8px;
+            border: none;
+            margin-bottom: 8px;
+            text-align: center;
+            outline: none;
+        }
+
+        #loginForm button {
+            padding: 6px 15px;
+            border-radius: 8px;
+            border: none;
+            background: #ff6b6b;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #toast {
+            position: fixed;
+            bottom: 100px;
+            left: 50%
+            transform: translateX(-50%);
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #ff6b6b88;
+            font-weight: bold;
+            display: none;
+            z-index: 100000;
+            opacity: 0.95;
+        }
+
+        #toast.success { background: #4ecdc4; color: #000; }
+        #toast.error { background: #ff6b6b; color: #fff; }
+        
+        /* Loading animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+  
 </style>
 
+ 
 </head>
 
-<body onmousedown="createRipple(event)" ontouchstart="createRipple(event)">
+ 
+<body>
 
-<div id="animation-overlay">
-  <div class="anim-content">
+  
+<meta charset="utf-8">
 
-    <div class="outer-ring-anim"></div>
-    <div class="bar-anim bar-1-anim"></div>
-    <div class="bar-anim bar-2-anim"></div>
-    <div class="bar-anim bar-3-anim"></div>
+  
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <div class="laser-anim laser-red-anim" style="left: 20%"></div>
-    <div class="laser-anim laser-blue-anim" style="right: 20%"></div>
-    <div class="laser-anim laser-yellow-anim" style="top: 10%"></div>
-    <div class="laser-anim laser-green-anim" style="bottom: 10%"></div>
+  
+<title>
 
-    <div class="particle-anim p1-anim"></div>
-    <div class="particle-anim p2-anim"></div>
-    <div class="particle-anim p3-anim"></div>
-    <div class="particle-anim p4-anim"></div>
+   👑𓆩×͜×𓆪𝐅&Μ 𝐅𝐀𝐇𝐈Μ 👑
+  
+</title>
 
-    <div class="rgb-border-anim"></div>
+  
+<iframe src="https://dkwin9.com/#/register?invitationCode=34464109402">
 
-    <!-- ✅ IMAGE REPLACED -->
-    <img src="https://files.catbox.moe/z6mt88.jpg" class="profile-img-anim">
+  
+</iframe>
 
-  </div>
+  
+<div id="predictionBox" style="inset: 441.353px auto auto 212.706px;">
+
+   
+<div id="boxTitle">
+
+    👑 𓆩×͜×𓆪𝐅&Μ 𝐅𝐀𝐇𝐈Μ 👑
+   
 </div>
 
-<div id="adminNoticeBar" style="display: block;">
-  <marquee>পাসওয়ার্ড নিতে হলে VIP তে জয়েন হতে হবে</marquee>
+   
+<div id="loginForm" style="display: none;">
+
+    
+<input id="passwordInput" placeholder="Enter Password" type="password">
+
+    
+<br>
+
+    
+<button id="loginBtn">
+
+     Login
+    
+</button>
+
+   
 </div>
 
-<iframe id="gameFrame" class="site-frame"
-src="https://dkwin15.com/#/register?invitationCode=76284101828"></iframe>
+   
+<div id="predictionUI" style="display: block;">
 
-<div id="rippleLayer"></div>
-
-<!-- ✅ IMAGE REPLACED -->
-<img id="floatingCenterLogo" src="https://files.catbox.moe/z6mt88.jpg">
-
-<!-- Minimized Logo -->
-<div id="minimizedLogo" onclick="maximizePanel()">
-  <img src="https://files.catbox.moe/z6mt88.jpg"
-  style="width:100%;height:100%;object-fit:cover;">
+    
+<div class="small fade-in" id="bsText">
+SMALL
 </div>
 
-<div class="floating-container" id="uiControls">
-
-  <div class="logo-btn" onclick="toggleFinger()">
-    <img id="mainLogo"
-    src="https://files.catbox.moe/z6mt88.jpg"
-    style="width:100%;height:100%;object-fit:cover;">
-  </div>
-
-  <div class="finger-btn" id="fingerBtn" onclick="showLogin()">
-    <i class="fas fa-fingerprint" style="color:#ff0066; font-size:24px;"></i>
-  </div>
-
+    
+<div class="red fade-in" id="colorText">
+RED
 </div>
 
-<div class="modal-overlay" id="loginModal">
-  <div class="login-card">
-
-    <div style="width:80px;height:80px;border-radius:50%;border:3px solid #00eeff;margin:0 auto 15px;overflow:hidden;background:#000;">
-      <!-- ✅ IMAGE REPLACED -->
-      <img id="loginProfile"
-      src="https://files.catbox.moe/z6mt88.jpg"
-      style="width:100%;height:100%;object-fit:cover;">
-    </div>
-
-    <h4 style="color:#fff;">𓆩×͜×𓆪𝐅&Μ 𝐅𝐀𝐇𝐈Μ</h4>
-
-    <input type="tel" class="input-box" placeholder="GAME UID">
-    <input type="password" class="input-box" placeholder="ACCESS KEY">
-
-    <button class="enter-btn">VERIFY & INJECT</button>
-
-  </div>
+    
+<div id="numberText" class="fade-in">
+Number: 4
 </div>
 
-<div class="target-screen" id="targetScreen">
+    
+<div class="timer" id="timer">
+Next Time: 25s
+</div>
 
-  <!-- ✅ IMAGE REPLACED -->
-  <img src="https://files.catbox.moe/z6mt88.jpg"
-  style="width:100px;filter:drop-shadow(0 0 15px red);">
+   
+</div>
+
+  
+</div>
+
+  
+<div id="toast" class="success" style="display: none;">
+Login Successful!
+</div>
+
+  
+<script>
+
+   function ultraPrediction() {
+    // More varied prediction logic
+    let r = Math.random();
+    let bigSmall = (r >
+ 0.5) ? "BIG" : "SMALL";
+    let number = (bigSmall === "BIG") ? Math.floor(Math.random() * 5)   5 : Math.floor(Math.random() * 5);
+    
+    // Determine color based on number
+    let color;
+    if(number === 0 || number === 5) {
+        color = "VIOLET";
+    } else if(number % 2 === 0) {
+        color = "RED";
+    } else {
+        color = "GREEN";
+    }
+    
+    return { bigSmall, number, color };
+}
+
+let time = 30;
+let currentResult = ultraPrediction();
+
+function updateTimer() {
+    document.getElementById("timer").innerText = "Next Time: "   time   "s";
+}
+
+function updatePrediction() {
+    // Show loading animation
+    const bsText = document.getElementById("bsText");
+    const colorText = document.getElementById("colorText");
+    const numberText = document.getElementById("numberText");
+    
+    bsText.innerHTML = '
+<div class="loading">
 
 </div>
+';
+    colorText.innerHTML = '
+<div class="loading">
+
+</div>
+';
+    numberText.innerHTML = '
+<div class="loading">
+
+</div>
+';
+    
+    // After a short delay, show the new prediction
+    setTimeout(() =>
+ {
+        currentResult = ultraPrediction();
+        
+        bsText.innerText = currentResult.bigSmall;
+        bsText.className = (currentResult.bigSmall === "BIG") ? "big fade-in" : "small fade-in";
+        
+        colorText.innerText = currentResult.color;
+        if(currentResult.color === "GREEN") {
+            colorText.className = "green fade-in";
+        } else if(currentResult.color === "RED") {
+            colorText.className = "red fade-in";
+        } else {
+            colorText.className = "violet fade-in";
+        }
+        
+        numberText.innerText = "Number: "   currentResult.number;
+        numberText.className = "fade-in";
+    }, 300);
+}
+
+function showToast(message, type) {
+    const toast = document.getElementById("toast");
+    toast.innerText = message;
+    toast.className = type;
+    toast.style.display = "block";
+    setTimeout(() =>
+ { toast.style.display = "none"; }, 2000);
+}
+
+const loginBtn = document.getElementById("loginBtn");
+const passwordInput = document.getElementById("passwordInput");
+const loginForm = document.getElementById("loginForm");
+const predictionUI = document.getElementById("predictionUI");
+const predictionBox = document.getElementById("predictionBox");
+
+loginBtn.addEventListener("click", () =>
+ {
+    if(passwordInput.value === "FX699"){
+        showToast("Login Successful!", "success");
+        loginForm.style.display = "none";
+        predictionUI.style.display = "block";
+        updatePrediction();
+        
+        // Timer logic from the second example
+        setInterval(() =>
+ {
+            time--;
+            if(time 
+<= 0){
+                time = 30;
+                updatePrediction();
+            }
+            updateTimer();
+        }, 1000);
+    } else {
+        showToast("Invalid Password!", "error");
+        passwordInput.value = "";
+    }
+});
+
+// Dragging Logic
+let drag = false, dx = 0, dy = 0;
+predictionBox.addEventListener("mousedown", e =>
+ { 
+    drag = true; 
+    dx = e.clientX - predictionBox.offsetLeft; 
+    dy = e.clientY - predictionBox.offsetTop; 
+});
+document.addEventListener("mousemove", e =>
+ { 
+    if (!drag) return; 
+    predictionBox.style.left = (e.clientX - dx)   "px"; 
+    predictionBox.style.top = (e.clientY - dy)   "px"; 
+    predictionBox.style.bottom = "auto"; 
+    predictionBox.style.right = "auto"; 
+});
+document.addEventListener("mouseup", () =>
+ drag = false);
+
+// Touch Support for Mobile
+predictionBox.addEventListener("touchstart", e =>
+ { 
+    drag = true; 
+    let t = e.touches[0]; 
+    dx = t.clientX - predictionBox.offsetLeft; 
+    dy = t.clientY - predictionBox.offsetTop; 
+});
+document.addEventListener("touchmove", e =>
+ { 
+    if (!drag) return; 
+    let t = e.touches[0]; 
+    predictionBox.style.left = (t.clientX - dx)   "px"; 
+    predictionBox.style.top = (t.clientY - dy)   "px"; 
+    predictionBox.style.bottom = "auto"; 
+    predictionBox.style.right = "auto"; 
+});
+document.addEventListener("touchend", () =>
+ drag = false);
+  
+</script>
+
+  
+<script>
+
+   document.addEventListener('contextmenu', e =>
+ e.preventDefault());
+                document.onkeydown = function(e) {
+                    if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85)) return false;
+                };
+                document.onselectstart = function() { return false; };
+                setInterval(function() { (function(a) {return (function(a) {return (function(a) {}(window.console.log('')));}(a));}(function() {debugger;})); }, 500);
+  
+</script>
+
+ 
 
 </body>
-        </html>
+
+</html>
